@@ -2,12 +2,28 @@
 Library    SeleniumLibrary
 
 ***Test Cases ***
-Search with "Post It"
+Verify Search with "Post It"
     Open Browser    https://www.officemate.co.th/en    chrome
     Input Text  xpath://input[@data-testid='txt-SearchBar']    Post It
     Click Element   xpath://div[@id='btn-searchResultPage']
-    # Wait Until Element Contains   xpath://iframe[@classname="sp-fancybox-iframe sp-fancybox-skin sp-fancybox-iframe-"]     20
-    # Select Frame    xpath://iframe[@classname="sp-fancybox-iframe sp-fancybox-skin sp-fancybox-iframe-9915"]
-    # Wait Until Element Is Visible     xpath://*/html/body/div[8]/iframe     20
-    # Select Frame    xpath://*/html/body/div[8]/iframe
-    # Click Element   xpath://*[@class="fa fa-times element-close-button"]
+
+    #TODO Able to close Popup
+
+    Wait Until Location Is Not      https://www.officemate.co.th/en     20
+    Capture Page Screenshot
+    Go Back
+
+Verify Search with SKU: MKP0344596
+    Input Text  xpath://input[@data-testid='txt-SearchBar']    MKP0344596
+    Click Element   xpath://div[@id='btn-searchResultPage']
+
+
+
+    Wait Until Location Is Not      https://www.officemate.co.th/en     20
+    Capture Page Screenshot
+
+Verify Search popup result
+    Input Text  xpath://input[@data-testid='txt-SearchBar']    Post It
+    Capture Page Screenshot
+
+
