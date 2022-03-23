@@ -2,8 +2,11 @@
 Library    SeleniumLibrary
 
 ***Test Cases ***
-TC01 Verify Search with "Post It"
+
+Pre-requisite Go to URL
     Open Browser    https://www.officemate.co.th/en    chrome
+
+TC01 Verify Search with "Post It"
     Input Text  xpath://input[@data-testid='txt-SearchBar']    Post It
     Click Element   xpath://div[@id='btn-searchResultPage']
 
@@ -12,7 +15,6 @@ TC01 Verify Search with "Post It"
     Wait Until Element Is Visible      xpath://div[@data-testid='pnl-ListPage']
     Capture Page Screenshot
     Wait Until Location Is Not      https://www.officemate.co.th/en     20
-
     Go Back
 
 TC02 Verify Search with SKU: MKP0344596
