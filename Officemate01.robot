@@ -34,7 +34,7 @@ TC04 Verify Search with xxxxxxxxxx and not found
     Wait Until Element Is Visible   //*[@id="pnl-listPageNotFound"]
     Capture Page Screenshot
 
-TC05 Verify Search with % and not found (Failed)
+TC09 Verify Search with % and not found (Failed)
     Input Text  xpath://input[@data-testid='txt-SearchBar']    %
     Click Element   xpath://div[@id='btn-searchResultPage']
     Wait Until Element Is Visible   //*[@id="pnl-listPageNotFound"]
