@@ -2,28 +2,40 @@
 Library    SeleniumLibrary
 
 ***Test Cases ***
-Verify Search with "Post It"
+TC01 Verify Search with "Post It"
     Open Browser    https://www.officemate.co.th/en    chrome
     Input Text  xpath://input[@data-testid='txt-SearchBar']    Post It
     Click Element   xpath://div[@id='btn-searchResultPage']
 
     #TODO Able to close Popup
 
-    Wait Until Location Is Not      https://www.officemate.co.th/en     20
+    Wait Until Element Is Visible      xpath://div[@data-testid='pnl-ListPage']
     Capture Page Screenshot
+    Wait Until Location Is Not      https://www.officemate.co.th/en     20
+
     Go Back
 
-Verify Search with SKU: MKP0344596
+TC02 Verify Search with SKU: MKP0344596
     Input Text  xpath://input[@data-testid='txt-SearchBar']    MKP0344596
     Click Element   xpath://div[@id='btn-searchResultPage']
-
-
-
-    Wait Until Location Is Not      https://www.officemate.co.th/en     20
+    Wait Until Element Is Visible      xpath://div[@data-testid='pnl-ListPage']
     Capture Page Screenshot
 
-Verify Search popup result
+TC03 Verify Search popup result
     Input Text  xpath://input[@data-testid='txt-SearchBar']    Post It
+    Wait Until Element Is Visible      xpath://div[@data-testid='pnl-ListPage']
+    Capture Page Screenshot
+
+TC04 Verify Search with xxxxxxxxxx and not found
+    Input Text  xpath://input[@data-testid='txt-SearchBar']    xxxxxxxxxx
+    Click Element   xpath://div[@id='btn-searchResultPage']
+    Wait Until Element Is Visible   //*[@id="pnl-listPageNotFound"]
+    Capture Page Screenshot
+
+TC05 Verify Search with % and not found (Failed)
+    Input Text  xpath://input[@data-testid='txt-SearchBar']    %
+    Click Element   xpath://div[@id='btn-searchResultPage']
+    Wait Until Element Is Visible   //*[@id="pnl-listPageNotFound"]
     Capture Page Screenshot
 
 
